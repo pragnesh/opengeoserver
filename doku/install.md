@@ -15,20 +15,22 @@ fab -u $user -H $host md_tune
 fab -u $user -H $host md_status
 
 fab -u $user -H $host vg_config
+fab -u $user -H $host fs_config
 
 fab -u $user -H $host ubuntu_basic
+fab -u $user -H $host ubuntu_gisppa
+fab -u $user -H $host ubuntu_build_essential
+fab -u $user -H $host ubuntu_build_geo
+fab -u $user -H $host ubuntu_postgis
 
-fab ubuntu_basic
-#fab btrfs
-fab ubuntu_ppa
-fab ubuntu_build
-fab ubuntu_postgis
-fab ubuntu_geo
-fab ubuntu_geopython
-#fab ubuntu_geonode
-#fab geonode_superuser
-#fab geonode_config
-fab ubuntu_fabric
+fab -u $user -H $host ubuntu_python
+fab -u $user -H $host ubuntu_geopython
+fab -u $user -H $host postgis_config
+
+fab -u $user -H $host postgis_create_template
+
+#fab -u $user -H $host postgis_drop_template
+
 fab ubuntu_tincserver
 fab ubuntu_tilemill
 fab ubuntu_nginx

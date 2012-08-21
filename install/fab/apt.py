@@ -21,6 +21,9 @@ def add_deb(deb):
     if not files.contains(SOURCES,deb):
         files.append(SOURCES,deb)
 
+def add_rep(rep):
+    sudo('add-apt-repository -y  %s'%rep)
+
 def add_key(key):
     sudo('apt-key adv --keyserver keyserver.ubuntu.com --recv %s'%key)
 
