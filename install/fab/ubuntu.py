@@ -56,3 +56,28 @@ def ubuntu_postgis():
     sysctl.load()
     apt.install('postgresql-contrib-9.1 postgresql-9.1-postgis2')
 
+def ubuntu_tilemill():
+    apt.install('tilemill')
+
+def tilemill_config():
+    put('config/tilemill/tilemill.config','/etc/tilemill')
+    with settings(warn_only=True):
+        sudo('service tilemill stop')
+    sudo('service tilemill start')
+
+def ubuntu_nginx():
+    apt.install('nginx')
+
+def nginx_config():
+    put('./config/nginx/*','/etc/nginx')
+    sudo ('ln -sf /etc/nginx/sites-available/default /etc/nginx/sites-enabled/')
+    sudo('mkdir -p /var/www/nginx')
+    sudo ('cp -r /usr/share/nginx/www/* /var/www/nginx')
+    sudo('chown -R www-data.www-data /var/www/nginx')
+    sudo('service nginx restart')
+
+def nginx_config_opengeoserver():
+    put('./config/opengeoserver/*','/var/www/nginx')
+    sudo('chown -R www-data.www-data /var/www/nginx')
+
+

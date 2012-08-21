@@ -28,13 +28,16 @@ fab -u $user -H $host ubuntu_geopython
 fab -u $user -H $host postgis_config
 
 fab -u $user -H $host postgis_create_template
-
 #fab -u $user -H $host postgis_drop_template
 
-fab ubuntu_tincserver
-fab ubuntu_tilemill
-fab ubuntu_nginx
-fab nginx_config
+fab -u $user -H $host ubuntu_tilemill
+fab -u $user -H $host tilemill_config
+
+fab -u $user -H $host ubuntu_nginx
+fab -u $user -H $host nginx_config
+fab -u $user -H $host nginx_config_opengeoserver
+
+#fab ubuntu_tincserver
 #fab data_group
 
 fab osm_tools
