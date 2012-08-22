@@ -1,0 +1,46 @@
+upstream public {
+    server localhost:9200;
+}
+
+upstream  internal{
+    server localhost:9201;
+}
+
+upstream test {
+    server localhost:9202;
+}
+
+server {
+    listen 80;
+    server_name services.* ;
+    access_log /var/log/nginx/public.access.log;
+
+    location / {
+        proxy_set_header Host services.geocloud.at;
+        proxy_pass http://prod;
+    }
+}
+
+server {
+    listen 80;
+    server_name test.*;
+    access_log /var/log/nginx/test.access.log;
+
+    location / {
+        proxy_set_header Host test.geocloud.at;
+        proxy_pass http://test;
+    }
+}
+
+server {
+    listen 80;
+    server_name demo.*;
+    access_log /var/log/nginx/demo.access.log;
+
+    location / {
+        proxy_set_header Host demo.geocloud.at;
+        proxy_pass http://demo;
+    }
+}
+
+
