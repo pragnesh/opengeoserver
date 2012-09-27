@@ -1,0 +1,85 @@
+
+seeds:
+  globe.aerial:
+    caches: [globe_aerial_all_cache,mapquest_aerial_wmscache]
+    grids: [epsg3857]
+    levels:
+      from: 1
+      to: 8
+
+  globe.aerial_europe:
+    caches: [globe_aerial_all_cache,mapquest_aerial_wmscache]
+    grids: [epsg3857]
+    coverages: [europe]
+    levels:
+      from: 9
+      to: 10
+
+  globe.aerial_graz:
+    caches: [globe_aerial_all_cache,atgrazogd_aerial_cache]
+    grids: [epsg3857]
+    coverages: [graz]
+    levels:
+      from: 11
+      to: 15
+
+  globe.aerial_linz:
+    caches: [globe_aerial_all_cache,atlinzogd_aerial_cache]
+    grids: [epsg3857]
+    coverages: [linz]
+    levels:
+      from: 11
+      to: 18
+
+  globe.aerial_vorarlberg:
+    caches: [globe_aerial_all_cache,atvogisogd_aerial_cache]
+    grids: [epsg3857]
+    coverages: [vorarlberg]
+    levels:
+      from: 11
+      to: 14
+
+  globe.aerial_wien:
+    caches: [globe_aerial_all_cache,atwienogd_aerial_cache]
+    grids: [epsg3857]
+    coverages: [wien]
+    levels:
+      from: 11
+      to: 18
+
+  globe.aerial_bayern:
+    caches: [globe_aerial_all_cache,debayernogd_aerial_cache]
+    grids: [epsg3857]
+    coverages: [bayern]
+    levels:
+      from: 11
+      to: 13
+
+coverages:
+  austria:
+    bbox: [9.36, 46.33, 17.28, 49.09]
+    bbox_srs: "EPSG:4326"
+
+  europe:
+    bbox: [-25.5, 30.5, 51.5, 71.5]
+    bbox_srs: "EPSG:4326"
+
+  graz:
+    bbox: [15.34474, 47.00782, 15.53929, 47.14237]
+    bbox_srs: 'EPSG:4326'
+
+  linz:
+    bbox: [14.23389, 48.20274, 14.41817, 48.38792]
+    bbox_srs: 'EPSG:4326'
+
+  vorarlberg:
+    bbox: [9.40879, 46.83183, 10.26317, 47.61083]
+    bbox_srs: 'EPSG:4326'
+
+  wien:
+    bbox: [16.17850, 48.11444, 16.57990, 48.32660]
+    bbox_srs: 'EPSG:4326'
+
+  bayern:
+    bbox: [8.95319, 47.29399, 13.84269, 50.56737]
+    bbox_srs: 'EPSG:4326'

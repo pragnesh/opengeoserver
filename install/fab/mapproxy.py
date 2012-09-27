@@ -58,6 +58,14 @@ def mapproxy_config_public():
     put('./config/mapproxy/supervisor/mapproxypublic.conf','/etc/supervisor/conf.d')
     sudo('supervisorctl reload')
 
+def mapproxy_seed_public():
+    cmd = """
+    sudo su mapbox -
+    . /opt/pyenv/mapproxy/public/bin/activate
+    cd /opt/mapproxy/public
+    mapproxy-seed -s seed_prod.yaml -f mapproxy_public.yaml -c 8
+    """
+
 def mapproxy_config_anim():
     path_virtenv = '/opt/pyenv/mapproxy/anim'
     path_config = '/opt/mapproxy/anim'
