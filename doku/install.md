@@ -26,9 +26,10 @@ fab -u $user -H $host ubuntu_postgis
 fab -u $user -H $host ubuntu_python
 fab -u $user -H $host ubuntu_geopython
 fab -u $user -H $host postgis_config
-
 fab -u $user -H $host postgis_create_template
 #fab -u $user -H $host postgis_drop_template
+
+fab -u $user -H $host osm_tools
 
 fab -u $user -H $host ubuntu_tilemill
 fab -u $user -H $host tilemill_config
@@ -36,6 +37,19 @@ fab -u $user -H $host tilemill_config
 fab -u $user -H $host ubuntu_nginx
 fab -u $user -H $host nginx_config
 fab -u $user -H $host nginx_config_opengeoserver
+
+fab -u $user -H $host mapnik_config
+fab -u $user -H $host pip_mapproxy
+fab -u $user -H $host mapproxy_config
+fab -u $user -H $host mapproxy_config_public
+
+fab -u $user -H $host restore_fromserver
+
+fab -u $user -H $host osm_data
+
+fab -u $user -H $host ubuntu_backup
+fab -u $user -H $host backup_config
+fab -u $user -H $host backup_run
 
 #fab ubuntu_tincserver
 #fab data_group
@@ -53,3 +67,10 @@ cd /opt/fab
 screen
 fab osm_data
 
+sudo su - mapbox
+. /opt/pyenv/mapproxy/demo/bin/activate
+cd /opt/mapproxy/demo
+cd . && mapproxy-util serve-develop mapproxy.yaml -b 0.0.0.0:9210
+
+cd . &&  mapproxy-util grids --list --mapproxy-conf mapproxy.yaml
+cd . && mapproxy-util grids --grid epsg3857 --mapproxy-conf mapproxy.yaml

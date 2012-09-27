@@ -1,0 +1,10 @@
+caches:
+ mapquest_aerial_cache:
+   sources: [mapquest_aerial_tile]
+   grids: [epsg3857]
+
+sources:
+ mapquest_aerial_tile:
+   type: tile
+   grid: epsg3857nw
+   url: http://oatile1.mqcdn.com/tiles/1.0.0/sat//%(tms_path)s.jpg

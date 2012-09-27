@@ -1,0 +1,13 @@
+
+caches:
+  noaa_nightlight_2009_cache:
+    grids: [epsg3857]
+    sources: [noaa_nightlight_2009_mapnik]
+    link_single_color_images: true
+
+
+sources:
+  noaa_nightlight_2009_mapnik:
+    type: mapnik
+    mapfile: /opt/mapnik/noaa_nightlight2009_3857.xml
+    #transparent: true

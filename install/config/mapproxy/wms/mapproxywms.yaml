@@ -1,0 +1,58 @@
+base: [globals.yaml, grids.yaml,mapquest_tiles.yaml,stamen_tiles.yaml]
+
+services:
+  demo:
+  #kml:
+  wmts:
+  tms:
+  wms:
+    srs: ['EPSG:3857']
+    image_formats: ['image/png']
+    #max_output_pixels: [1024,1024]
+    md:
+      title: OpenGeoServer Layers
+      abstract: MapProxy.org server hosted by OpenGeoserver.org
+      online_resource: http://opengeoserver.org
+      access_constraints: CC-BY
+      fees: 'None'
+      contact:
+        person: Andreas Trawoeger
+        organization: Kartenwerkstatt.at
+        email: atrawog@kartenwerkstatt.at
+
+layers:
+  - name: globe.aerial.mapquest
+    title: Globe Aerial Combined Layers
+    sources: [mapquest_aerial_cache]
+    md:
+      abstract: Globe Aerial Combined Layers, Tiles Courtesy of MapQuest, Portions Courtesy NASA/JPL-Caltech and U.S. Depart. of Agriculture, Farm Service Agency, Stadt Wien, Stadt Linz, Stadt Graz, Land Vorarlberg
+      attribution:
+        title: Tiles Courtesy of MapQuest, Portions Courtesy NASA/JPL-Caltech and U.S. Depart. of Agriculture, Farm Service Agency, Stadt Wien, Stadt Linz, Stadt Graz, Land Vorarlberg
+        url:  http://developer.mapquest.com/web/products/open/map
+        
+  - name: globe.osm.stamen.watercolor
+    title: Globe OpenStreetMap Stamen Desigen Watercolor Style
+    sources: [stamen_watercolor_cache]
+    md:
+      abstract: Map tiles by Stamen Design, under CC BY 3.0. Data by OpenStreetMap, under CC BY SA.
+      attribution:
+        title: Map tiles by Stamen Design, under CC BY 3.0. Data by OpenStreetMap, under CC BY SA.
+        url:   http://maps.stamen.com
+
+  - name: globe.osm.stamen.toner
+    title: Globe OpenStreetMap Stamen Desigen toner Style
+    sources: [stamen_toner_cache]
+    md:
+      abstract: Map tiles by Stamen Design, under CC BY 3.0. Data by OpenStreetMap, under CC BY SA.
+      attribution:
+        title: Map tiles by Stamen Design, under CC BY 3.0. Data by OpenStreetMap, under CC BY SA.
+        url:   http://maps.stamen.com
+        
+  - name: globe.osm.stamen.terrain
+    title: Globe OpenStreetMap Stamen Desigen terrain Style
+    sources: [stamen_terrain_cache]
+    md:
+      abstract: Map tiles by Stamen Design, under CC BY 3.0. Data by OpenStreetMap, under CC BY SA.
+      attribution:
+        title: Map tiles by Stamen Design, under CC BY 3.0. Data by OpenStreetMap, under CC BY SA.
+        url:   http://maps.stamen.com

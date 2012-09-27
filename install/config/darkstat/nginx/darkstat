@@ -1,0 +1,15 @@
+
+upstream darkstat {
+    server localhost:666;
+}
+
+server {
+    listen 80;
+    server_name darkstat.*;
+    access_log /var/log/nginx/darkstat.access.log;
+
+    location / {
+        proxy_set_header Host darkstat.opengeoserver.at;
+        proxy_pass http://darkstat;
+    }
+}

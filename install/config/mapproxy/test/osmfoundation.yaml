@@ -1,0 +1,11 @@
+caches:
+  osmfoundation_default_cache:
+    sources: [osmfoundation_default_tile]
+    grids: [epsg3857]
+
+sources:
+  osmfoundation_default_tile:
+    type: tile
+    grid: epsg3857nw
+    transparent: true
+    url: http://a.tile.openstreetmap.org/%(tms_path)s.png

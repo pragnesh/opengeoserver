@@ -1,0 +1,161 @@
+
+caches:
+  osmbright_all_cache:
+    grids: [epsg3857]
+    sources: [osmbright_all]
+    link_single_color_images: true
+
+  osmbright_land_cache:
+    grids: [epsg3857]
+    sources: [osmbright_land]
+    link_single_color_images: true
+
+  osmbright_landuse_cache:
+    grids: [epsg3857]
+    sources: [osmbright_landuse]
+    link_single_color_images: true
+
+  osmbright_water_cache:
+    grids: [epsg3857]
+    sources: [osmbright_water]
+    link_single_color_images: true
+
+  osmbright_admin_cache:
+    grids: [epsg3857]
+    sources: [osmbright_admin]
+    link_single_color_images: true
+
+  osmbright_building_cache:
+    grids: [epsg3857]
+    sources: [osmbright_building]
+    link_single_color_images: true
+
+  osmbright_roads_cache:
+    grids: [epsg3857]
+    sources: [osmbright_roads]
+    link_single_color_images: true
+
+  osmbright_label_place_cache:
+    grids: [epsg3857]
+    sources: [osmbright_label_place]
+    link_single_color_images: true
+
+  osmbright_label_area_cache:
+    grids: [epsg3857]
+    sources: [osmbright_label_area]
+    link_single_color_images: true
+
+  osmbright_label_water_cache:
+    grids: [epsg3857]
+    sources: [osmbright_label_water]
+    link_single_color_images: true
+
+  osmbright_label_road_cache:
+    grids: [epsg3857]
+    sources: [osmbright_label_road]
+    link_single_color_images: true
+
+  osmbright_label_all_cache:
+    grids: [epsg3857]
+    sources: [osmbright_label_all]
+    link_single_color_images: true
+
+sources:
+  osmbright_all:
+    type: mapnik
+    use_mapnik2: true
+    mapfile: /opt/mapnik/OSMBright20120510.xml
+
+
+  osmbright_land:
+    type: mapnik
+    use_mapnik2: true
+    transparent: true
+    mapfile: /opt/mapnik/OSMBright20120510.xml
+    layers: shoreline_300,processed_p,land
+
+
+  osmbright_landuse:
+    type: mapnik
+    use_mapnik2: true
+    transparent: true
+    mapfile: /opt/mapnik/OSMBright20120510.xml
+    layers: landuse_gen0,landuse_gen1,landuse
+    #layers: landuse,landuse_gen0,landuse_gen1
+
+
+  osmbright_water:
+    type: mapnik
+    use_mapnik2: true
+    transparent: true
+    mapfile: /opt/mapnik/OSMBright20120510.xml
+    #layers: waterway_low,waterway_med,waterway_high,water_gen0,water_gen1,water
+    layers: waterway_low,waterway_med,waterway_high,water_gen0,water_gen1,waterway,water
+
+
+  osmbright_admin:
+    type: mapnik
+    use_mapnik2: true
+    transparent: true
+    mapfile: /opt/mapnik/OSMBright20120510.xml
+    layers: admin
+
+
+  osmbright_building:
+    type: mapnik
+    use_mapnik2: true
+    transparent: true
+    mapfile: /opt/mapnik/OSMBright20120510.xml
+    layers: buildings
+
+
+  osmbright_roads:
+    type: mapnik
+    use_mapnik2: true
+    transparent: true
+    mapfile: /opt/mapnik/OSMBright20120510.xml
+    layers: aeroway,tunnel,turning_circle_case,roads_high,roads_med,roads_low,turning_circle_fill,bridge,barrier_points,barrier_lines
+
+
+  osmbright_label_place:
+    type: mapnik
+    use_mapnik2: true
+    transparent: true
+    mapfile: /opt/mapnik/OSMBright20120510.xml
+    layers: place
+
+
+  osmbright_label_area:
+    type: mapnik
+    use_mapnik2: true
+    transparent: true
+    mapfile: /opt/mapnik/OSMBright20120510.xml
+    layers: area_label
+
+
+  osmbright_label_water:
+    type: mapnik
+    use_mapnik2: true
+    transparent: true
+    mapfile: /opt/mapnik/OSMBright20120510.xml
+    layers: waterway_label
+
+
+  osmbright_label_road:
+    type: mapnik
+    use_mapnik2: true
+    transparent: true
+    mapfile: /opt/mapnik/OSMBright20120510.xml
+    layers: motorway_label,mainroad_label,minorroad_label
+
+
+  osmbright_label_all:
+    type: mapnik
+    use_mapnik2: true
+    transparent: true
+    mapfile: /opt/mapnik/OSMBright20120510.xml
+    layers: place,area_label,waterway_label,motorway_label,mainroad_label,minorroad_label
+
+
+
+

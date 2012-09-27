@@ -34,7 +34,7 @@ def osm_data_clean():
     with cd('/opt/osm'):
         sudo('rm -f *.finished europe.osm.pbf')
 
-PLANET_WGET='wget -c http://download.geofabrik.de/osm/%s'
+PLANET_WGET='wget -c download.geofabrik.de/osm-before-redaction/%s'
 PLANET_NAME='europe.osm.pbf'
 
 IMPOSM_MAPPING='/usr/src/osm-bright/imposm-mapping.py'
@@ -51,7 +51,8 @@ def imposm(db,mapping,osm_in):
     elif '4326' in db:
         run('imposm --proj=EPSG:4326 -c 8 -d {0} --write --read --optimize --overwrite-cache --deploy-production-tables --remove-backup-tables -m {1} {2}'.format(db,mapping,osm_in))
     else:
-        run('imposm -c 8 -d {0} --write --read --optimize --overwrite-cache --deploy-production-tables --remove-backup-tables -m {1} {2}'.format(db,mapping,osm_in))
+        run("""psql -U {0} -d {1} -f /usr/local/lib/python2.7/dist-packages/imposm/900913.sql""".format(OSM_USER,db))
+        run('imposm --proj=EPSG:900913 -c 8 -d {0} --write --read --optimize --overwrite-cache --deploy-production-tables --remove-backup-tables -m {1} {2}'.format(db,mapping,osm_in))
 
 HIGHROAD_SQL='/usr/src/HighRoad/views.pgsql'
 
@@ -61,20 +62,21 @@ def osm2pgsql (db,osm_in):
     elif '4326' in db:
         run('osm2pgsql -v -C 8192 -E 4326 --create --database {0} --username osm --hstore --hstore-all --multi-geometry  --number-processes 8 {1}'.format(db,osm_in))
     else:
+        run("""psql -U {0} -d {1} -f /usr/share/osm2pgsql/900913.sql""".format(OSM_USER,db))
         run('osm2pgsql -v -C 8192 --create --database {0} --username osm --hstore --hstore-all --multi-geometry  --number-processes 8 {1}'.format(db,osm_in))
 
-    run('psql -U {0} -d {1} -f {2}'.format(OSM_USER,db,HIGHROAD_SQL))
-    run("""psql -U {0} -d {1} -c'
-            CREATE INDEX planet_osm_line_gist    ON planet_osm_line    USING GIST (way GIST_GEOMETRY_OPS);
-            CREATE INDEX planet_osm_point_gist    ON planet_osm_point    USING GIST (way GIST_GEOMETRY_OPS);
-            CREATE INDEX planet_osm_polygon_gist    ON planet_osm_polygon    USING GIST (way GIST_GEOMETRY_OPS);
-            CREATE INDEX planet_osm_roads_gist    ON planet_osm_roads    USING GIST (way GIST_GEOMETRY_OPS);
-            CREATE INDEX planet_osm_line_tags    ON planet_osm_line    USING GIN (tags);
-            CREATE INDEX planet_osm_point_tags   ON planet_osm_point   USING GIN (tags);
-            CREATE INDEX planet_osm_polygon_tags ON planet_osm_polygon USING GIN (tags);
-            CREATE INDEX planet_osm_roads_tags   ON planet_osm_roads   USING GIN (tags);
-            CREATE INDEX planet_osm_ways_tags   ON planet_osm_roads   USING GIN (tags);
-            -- CREATE INDEX planet_osm_rels_tags   ON planet_osm_rels   USING GIN (tags);'""".format(OSM_USER,db))
+    #run('psql -U {0} -d {1} -f {2}'.format(OSM_USER,db,HIGHROAD_SQL))
+    #run("""psql -U {0} -d {1} -c'
+            #CREATE INDEX planet_osm_line_gist    ON planet_osm_line    USING GIST (way GIST_GEOMETRY_OPS);
+            #CREATE INDEX planet_osm_point_gist    ON planet_osm_point    USING GIST (way GIST_GEOMETRY_OPS);
+            #CREATE INDEX planet_osm_polygon_gist    ON planet_osm_polygon    USING GIST (way GIST_GEOMETRY_OPS);
+            #CREATE INDEX planet_osm_roads_gist    ON planet_osm_roads    USING GIST (way GIST_GEOMETRY_OPS);
+            #CREATE INDEX planet_osm_line_tags    ON planet_osm_line    USING GIN (tags);
+            #CREATE INDEX planet_osm_point_tags   ON planet_osm_point   USING GIN (tags);
+            #CREATE INDEX planet_osm_polygon_tags ON planet_osm_polygon USING GIN (tags);
+            #CREATE INDEX planet_osm_roads_tags   ON planet_osm_roads   USING GIN (tags);
+            #CREATE INDEX planet_osm_ways_tags   ON planet_osm_roads   USING GIN (tags);
+            #-- CREATE INDEX planet_osm_rels_tags   ON planet_osm_rels   USING GIN (tags);'""".format(OSM_USER,db))
 
     run("""psql -U {0} -d {1} -c'VACUUM ANALYSE;'""".format(OSM_USER,db))
 

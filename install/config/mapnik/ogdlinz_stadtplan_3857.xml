@@ -1,0 +1,14 @@
+<Map  srs="+init=epsg:3857">
+  <Style name="default">
+    <Rule>
+      <RasterSymbolizer scaling="lanczos" />
+    </Rule>
+  </Style>
+    <Layer name="OGD_LINZ_STADTPLAN" srs="+init=epsg:3857">
+        <StyleName>default</StyleName>
+        <Datasource>
+            <Parameter name="file">/opt/data/ogdlinz/ogdlinz_stadtplan_3857l.tiff</Parameter>
+            <Parameter name="type">gdal</Parameter>
+        </Datasource>
+    </Layer>    
+</Map>

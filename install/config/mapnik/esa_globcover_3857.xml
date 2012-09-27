@@ -1,0 +1,14 @@
+<Map  srs="+init=epsg:3857">
+  <Style name="default">
+    <Rule>
+      <RasterSymbolizer scaling="lanczos" />
+    </Rule>
+  </Style>
+    <Layer name="ESA_GlobCover" srs="+init=epsg:3857">
+        <StyleName>default</StyleName>
+        <Datasource>
+            <Parameter name="file">/opt/data/landcover/GLOBCOVER_L4_200901_200912_V2.3_86400bi_3857.tiff</Parameter>
+            <Parameter name="type">gdal</Parameter>
+        </Datasource>
+    </Layer>
+</Map>

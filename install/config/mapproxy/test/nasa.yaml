@@ -1,0 +1,13 @@
+
+caches:
+  globe_nasa_bmng_cache:
+    grids: [epsg3857]
+    sources: [globe_nasa_bmng_mapnik]
+    link_single_color_images: true
+
+
+sources:
+  globe_nasa_bmng_mapnik:
+    type: mapnik
+    mapfile: /opt/mapnik/globe_nasa_bmng_3857.xml
+    #transparent: true

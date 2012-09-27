@@ -1,0 +1,47 @@
+
+caches:
+  atwienogd_aerial_cache:
+    grids: [epsg3857]
+    sources: [atwienogd_aerial_mapnik]
+    link_single_color_images: true
+
+  atwienogd_map_cache:
+    grids: [epsg3857]
+    sources: [atwienogd_map_mapnik]
+    link_single_color_images: true
+
+  atwienogd_label_cache:
+    grids: [epsg3857]
+    sources: [atwienogd_label_mapnik]
+    link_single_color_images: true
+
+sources:
+  atwienogd_aerial_mapnik:
+    type: mapnik
+    mapfile: /opt/mapnik/ogdwien_3857.xml
+    layers: aerial
+    transparent: true
+    #coverage:
+    #  bbox: [1799448.394855, 6162571.828177, 1848250.442089, 6124949.747770]
+    #  bbox_srs: 'EPSG:3857'
+    min_res: 611.49622628141
+    coverage:
+      bbox: [16.17850, 48.11444, 16.57990, 48.32660]
+      bbox_srs: 'EPSG:4326'
+
+  atwienogd_map_mapnik:
+    type: mapnik
+    mapfile: /opt/mapnik/ogdwien_3857.xml
+    layers: map
+    coverage:
+      bbox: [16.17850, 48.11444, 16.57990, 48.32660]
+      bbox_srs: 'EPSG:4326'
+
+  atwienogd_label_mapnik:
+    type: mapnik
+    mapfile: /opt/mapnik/ogdwien_3857.xml
+    layers: label
+    coverage:
+      bbox: [1799448.394855, 6162571.828177, 1848250.442089, 6124949.747770]
+      bbox_srs: 'EPSG:3857'
+

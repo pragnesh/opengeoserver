@@ -1,0 +1,18 @@
+globals:
+  http:
+    client_timeout: 240
+  cache:
+    base_dir: '/opt/cache/prod'
+    lock_dir: '/opt/cache/prod/locks'
+    meta_size: [4, 4]
+    meta_buffer: 100
+
+  image:
+    formats:
+      image/png:
+        encoding_options:
+          quantizer: fastoctree
+        mode: P
+        transparent: true
+    paletted: true
+    resampling_method: bicubic

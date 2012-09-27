@@ -1,0 +1,13 @@
+caches:
+  osm_europe_pandonia_cache:
+    grids: [epsg3857]
+    sources: [osm_europe_pandonia]
+    link_single_color_images: true
+
+sources:
+  osm_europe_pandonia:
+    type: mapnik
+    use_mapnik2: true
+    transparent: true
+    concurrent_requests: 0
+    mapfile: /opt/mapnik/OsmEuropePandonia-000.xml

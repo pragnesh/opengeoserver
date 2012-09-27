@@ -1,0 +1,35 @@
+server {
+    listen 80;
+    server_name opengeoserver.at www.opengeoserver.at;
+    index index.html;
+
+    location / {
+        root /var/www/opengeoserver.at;
+        }
+
+    location /nginx_status {
+        stub_status on;
+        access_log   off;
+        #allow 127.0.0.1;
+        #deny all;
+        allow all;
+    }
+}
+
+server {
+    listen 80;
+    server_name opengeoserver.org www.opengeoserver.org;
+    index index.html;
+
+    location / {
+        root /var/www/opengeoserver.org;
+        }
+
+    location /nginx_status {
+        stub_status on;
+        access_log   off;
+        #allow 127.0.0.1;
+        #deny all;
+        allow all;
+    }
+}

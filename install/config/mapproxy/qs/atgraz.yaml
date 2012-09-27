@@ -1,0 +1,17 @@
+
+caches:
+  atgrazogd_aerial_cache:
+    grids: [epsg3857]
+    sources: [atgrazogd_aerial_wms]
+    link_single_color_images: true
+
+sources:
+  atgrazogd_aerial_wms:
+    type: wms
+    req:
+      url: http://geodaten1.graz.at/ArcGIS_Graz/services/Extern/LUFTBILD_WMS/MapServer/WMSServer
+      layers: 1
+      transparent: true
+    #coverage:
+    #  bbox: [1799448.394855, 6162571.828177, 1848250.442089, 6124949.747770]
+    #  bbox_srs: 'EPSG:3857'

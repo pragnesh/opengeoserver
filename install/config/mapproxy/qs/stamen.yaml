@@ -1,0 +1,52 @@
+caches:
+  stamen_toner_cache:
+   sources: [stamen_toner_tile]
+   grids: [epsg3857]
+   link_single_color_images: true
+
+  stamen_toner_transparent_cache:
+   sources: [stamen_toner_transparent_wms]
+   grids: [epsg3857]
+   link_single_color_images: true
+
+  stamen_terrain_cache:
+   sources: [stamen_terrain_tile]
+   grids: [epsg3857]
+   link_single_color_images: true
+
+  stamen_watercolor_cache:
+   sources: [stamen_watercolor_tile]
+   grids: [epsg3857]
+   link_single_color_images: true
+
+sources:
+  stamen_toner_tile:
+    type: tile
+    grid: epsg3857nw
+    transparent: true
+    url: http://tile.stamen.com/toner/%(tms_path)s.png
+
+  stamen_toner_transparent_wms:
+    type: wms
+    image:
+      transparent_color: '#ffffff'
+      transparent_color_tolerance: 20
+    req:
+      url: http://demo3857.opengeoserver.org/service?
+      #url: http://ogsa.local:9210/service?
+      layers: globe.osm.stamen.toner
+    #supported_format: 'image/png'
+   
+  stamen_terrain_tile:
+    type: tile
+    grid: epsg3857nw
+    transparent: true
+    url: http://tile.stamen.com/terrain/%(tms_path)s.png
+
+  stamen_watercolor_tile:
+    type: tile
+    grid: epsg3857nw
+    transparent: true
+    url: http://tile.stamen.com/watercolor/%(tms_path)s.jpg
+    http:
+      client_timeout: 240

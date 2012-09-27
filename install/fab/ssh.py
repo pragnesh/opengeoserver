@@ -18,9 +18,8 @@ def keyreset():
 
 def keypush():
 
-    if files.exists('./config/root/ssh'):
-        put ('./config/root/ssh/*','/root/.ssh')
-        run('chmod 600 /root/.ssh/*')
+    put ('./config/root/ssh/*','/root/.ssh')
+    run('chmod 600 /root/.ssh/*')
 
     local('ssh-copy-id %s@%s'%(env.user,env.host))
 

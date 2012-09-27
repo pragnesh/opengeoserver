@@ -1,0 +1,197 @@
+caches:
+
+  EEA_BiogeographicalRegions_2008_cache:
+    grids: [epsg4326, epsg3857]
+    sources: [EEA_BiogeographicalRegions_2008_wms]
+    link_single_color_images: true
+    minimize_meta_requests: true
+
+  EEA_CDDA_cache:
+    grids: [epsg4326, epsg3857]
+    sources: [EEA_CDDA_wms]
+    link_single_color_images: true
+    minimize_meta_requests: true
+
+  EEA_CLC2006_cache:
+    grids: [epsg4326, epsg3857]
+    sources: [EEA_CLC2006_Artificial_Surfaces_wms,
+              EEA_CLC2006_Agricultural_Areas_wms,
+              EEA_CLC2006_Forest_Semi_Natural_Areas_wms,
+              EEA_CLC2006_Wetlands_wms,
+              EEA_CLC2006_Waterbodies_wms]
+    link_single_color_images: true
+    minimize_meta_requests: true
+
+  EEA_CLC2006_Artificial_Surfaces_cache:
+    grids: [epsg4326, epsg3857]
+    sources: [EEA_CLC2006_Artificial_Surfaces_wms]
+    link_single_color_images: true
+    minimize_meta_requests: true
+
+  EEA_CLC2006_Agricultural_Areas_cache:
+    grids: [epsg4326, epsg3857]
+    sources: [EEA_CLC2006_Agricultural_Areas_wms]
+    link_single_color_images: true
+    minimize_meta_requests: true
+
+  EEA_CLC2006_Forest_Semi_Natural_Areas_cache:
+    grids: [epsg4326, epsg3857]
+    sources: [EEA_CLC2006_Forest_Semi_Natural_Areas_wms]
+    link_single_color_images: true
+    minimize_meta_requests: true
+
+  EEA_CLC2006_Wetlands_cache:
+    grids: [epsg4326, epsg3857]
+    sources: [EEA_CLC2006_Wetlands_wms]
+    link_single_color_images: true
+    minimize_meta_requests: true
+
+  EEA_CLC2006_Waterbodies_cache:
+    grids: [epsg4326, epsg3857]
+    sources: [EEA_CLC2006_Waterbodies_wms]
+    link_single_color_images: true
+    minimize_meta_requests: true
+
+
+  EEA_Natura2000_cache:
+    grids: [epsg4326, epsg3857]
+    sources: [EEA_Natura2000_SCI_wms,EEA_Natura2000_SPA_wms,EEA_Natura2000_C_wms]
+    link_single_color_images: true
+    minimize_meta_requests: true
+
+  EEA_Natura2000_C_cache:
+    grids: [epsg4326, epsg3857]
+    sources: [EEA_Natura2000_C_wms]
+    link_single_color_images: true
+    minimize_meta_requests: true
+
+  EEA_Natura2000_SCI_cache:
+    grids: [epsg4326, epsg3857]
+    sources: [EEA_Natura2000_SCI_wms]
+    link_single_color_images: true
+    minimize_meta_requests: true
+
+  EEA_Natura2000_SPA_cache:
+    grids: [epsg4326, epsg3857]
+    sources: [EEA_Natura2000_SPA_wms]
+    link_single_color_images: true
+    minimize_meta_requests: true
+
+  OsGeo_Vmap0_cache:
+    grids: [epsg4326, epsg3857]
+    sources: [OsGeo_Vmap0_wms]
+    link_single_color_images: true
+    minimize_meta_requests: true
+
+sources:
+
+  EEA_BiogeographicalRegions_2008_wms:
+    type: wms
+    wms_opts:
+      featureinfo: true
+    supported_srs: ['EPSG:4326']
+    req:
+      url: http://discomap.eea.europa.eu/ArcGIS/services/Bio/BiogeographicalRegions2008_Dyna_WM/MapServer/WMSServer?
+      layers: 0
+      transparent: true
+
+  EEA_CDDA_wms:
+    type: wms
+    wms_opts:
+      featureinfo: true
+    supported_srs: ['EPSG:4326']
+    req:
+      url: http://discomap.eea.europa.eu/ArcGIS/services/Bio/CDDA_Dyna_WGS84/MapServer/WMSServer?
+      layers: 2,1,0
+      transparent: true
+
+  EEA_Natura2000_C_wms:
+    type: wms
+    wms_opts:
+      featureinfo: true
+    supported_srs: ['EPSG:4326']
+    req:
+      url: http://discomap.eea.europa.eu/ArcGIS/services/Bio/Natura2000Solid_Cach_WM/MapServer/WMSServer?
+      layers: 11,10,9
+      transparent: true
+
+  EEA_Natura2000_SCI_wms:
+    type: wms
+    wms_opts:
+      featureinfo: true
+    supported_srs: ['EPSG:4326']
+    req:
+      url: http://discomap.eea.europa.eu/ArcGIS/services/Bio/Natura2000Solid_Cach_WM/MapServer/WMSServer?
+      layers: 7,6,5
+      transparent: true
+
+  EEA_Natura2000_SPA_wms:
+    type: wms
+    wms_opts:
+      featureinfo: true
+    supported_srs: ['EPSG:4326']
+    req:
+      url: http://discomap.eea.europa.eu/ArcGIS/services/Bio/Natura2000Solid_Cach_WM/MapServer/WMSServer?
+      layers: 3,2,1
+      transparent: true
+
+  EEA_CLC2006_Artificial_Surfaces_wms:
+    type: wms
+    wms_opts:
+      featureinfo: true
+    supported_srs: ['EPSG:4326']
+    req:
+      url: http://discomap.eea.europa.eu/ArcGIS/services/Land/CLC2006_Dyna_WGS84/MapServer/WMSServer?
+      layers: 14,13
+      transparent: true
+
+  EEA_CLC2006_Agricultural_Areas_wms:
+    type: wms
+    wms_opts:
+      featureinfo: true
+    supported_srs: ['EPSG:4326']
+    req:
+      url: http://discomap.eea.europa.eu/ArcGIS/services/Land/CLC2006_Dyna_WGS84/MapServer/WMSServer?
+      layers: 11,10
+      transparent: true
+
+  EEA_CLC2006_Forest_Semi_Natural_Areas_wms:
+    type: wms
+    wms_opts:
+      featureinfo: true
+    supported_srs: ['EPSG:4326']
+    req:
+      url: http://discomap.eea.europa.eu/ArcGIS/services/Land/CLC2006_Dyna_WGS84/MapServer/WMSServer?
+      layers: 8,7
+      transparent: true
+
+  EEA_CLC2006_Wetlands_wms:
+    type: wms
+    wms_opts:
+      featureinfo: true
+    supported_srs: ['EPSG:4326']
+    req:
+      url: http://discomap.eea.europa.eu/ArcGIS/services/Land/CLC2006_Dyna_WGS84/MapServer/WMSServer?
+      layers: 5,4
+      transparent: true
+
+  EEA_CLC2006_Waterbodies_wms:
+    type: wms
+    wms_opts:
+      featureinfo: true
+    supported_srs: ['EPSG:4326']
+    req:
+      url: http://discomap.eea.europa.eu/ArcGIS/services/Land/CLC2006_Dyna_WGS84/MapServer/WMSServer?
+      layers: 2,1
+      transparent: true
+
+  OsGeo_Vmap0_wms:
+    type: wms
+    supported_srs: ['EPSG:4326','EPSG:900913']
+    req:
+      url: http://vmap0.tiles.osgeo.org/wms/vmap0
+      layers: basic
+      transparent: true
+
+
+

@@ -1,0 +1,18 @@
+
+caches:
+  debayernogd_aerial_cache:
+    meta_size: [4, 4]
+    meta_buffer: 0
+    grids: [epsg3857]
+    sources: [debayernogd_aerial_wms]
+    link_single_color_images: true
+
+sources:
+  debayernogd_aerial_wms:
+    type: wms
+    supported_srs: ['EPSG:4326', 'EPSG:31467']
+    req:
+      url: http://geodaten.bayern.de/ogc/ogc_dop200_oa.cgi
+      layers: adv_dop200c
+      transparent: true
+

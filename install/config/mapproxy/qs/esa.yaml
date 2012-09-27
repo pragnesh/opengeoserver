@@ -1,0 +1,13 @@
+
+caches:
+  esa_globcover_cache:
+    grids: [epsg3857]
+    sources: [esa_globcover_mapnik]
+    link_single_color_images: true
+
+
+sources:
+  esa_globcover_mapnik:
+    type: mapnik
+    mapfile: /opt/mapnik/esa_globcover_3857.xml
+    #transparent: true

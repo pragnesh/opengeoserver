@@ -1,0 +1,95 @@
+base: [globals_prod.yaml, grids.yaml,mapquest_wms.yaml,atwien_mapnik.yaml,atlinz_mapnik.yaml,nasa_mapnik.yaml,atgraz_wms.yaml,atvogis_wms.yaml,debayern_wms.yaml]
+
+services:
+  demo:
+  #kml:
+  wmts:
+  tms:
+  wms:
+    srs: ['EPSG:3857']
+    image_formats: ['image/png']
+    max_output_pixels: [512,512]
+    md:
+      title: OpenGeoServer Layers
+      abstract: MapProxy.org server hosted by OpenGeoserver.org
+      online_resource: http://opengeoserver.org
+      access_constraints: CC-BY
+      fees: 'None'
+      contact:
+        person: Andreas Trawoeger
+        organization: Kartenwerkstatt.at
+        email: atrawog@kartenwerkstatt.at
+
+layers:
+  - name: globe.aerial
+    title: Globe Aerial Combined Layers
+    sources: [globe_aerial_all_cache]
+    md:
+      abstract: Globe Aerial Combined Layers, Tiles Courtesy of MapQuest, Portions Courtesy NASA/JPL-Caltech and U.S. Depart. of Agriculture, Farm Service Agency, Stadt Wien, Stadt Linz, Stadt Graz, Land Vorarlberg
+      attribution:
+        title: Tiles Courtesy of MapQuest, Portions Courtesy NASA/JPL-Caltech and U.S. Depart. of Agriculture, Farm Service Agency, Stadt Wien, Stadt Linz, Stadt Graz, Land Vorarlberg
+        url:  http://developer.mapquest.com/web/products/open/map
+
+
+  - name: globe.nasa.bmng
+    title: Globe NASA BlueMarble
+    sources: [globe_nasa_bmng_cache]
+    md:
+      abstract: Blue Marble Next Generation was produced by Reto Stoeckli, NASA Earth Observatory
+      attribution:
+        title: Blue Marble Next Generation was produced by Reto Stoeckli, NASA Earth Observatory
+        url:   http://earthobservatory.nasa.gov/Features/BlueMarble
+
+  - name: at.vienna.aerial
+    title: Austria OGD Vienna Aerial
+    sources: [atwienogd_aerial_cache]
+    md:
+      abstract: Austria OGD Vienna Aerial, Datenquelle CC-BY-3.0 Stadt Wien - data.wien.gv.at
+      attribution:
+        title: Datenquelle CC-BY-3.0 Stadt Wien - data.wien.gv.at
+        url:   http://data.wien.gv.at/nutzungsbedingungen
+
+  - name: at.linz.aerial
+    title: Austria OGD Linz Aerial
+    sources: [atlinzogd_aerial_cache]
+    md:
+      abstract: Austria OGD Linz Aerial, Datenquelle CC-BY-3.0 Stadt Linz - data.linz.gv.at
+      attribution:
+        title: Datenquelle CC-BY-3.0 Stadt Linz - data.linz.gv.at
+        url:   http://data.linz.gv.at/nutzungsbedingungen
+
+  - name: at.graz.aerial
+    title: Austria OGD Graz Aerial
+    sources: [atgrazogd_aerial_cache]
+    md:
+      abstract: Austria OGD Graz Aerial, Datenquelle CC-BY-3.0 Stadt graz - data.graz.gv.at
+      attribution:
+        title: Datenquelle CC-BY-3.0 Stadt graz - data.graz.gv.at
+        url:   http://data.graz.gv.at/nutzungsbedingungen
+
+  - name: at.vorarlberg.aerial
+    title: Austria OGD Vorarlberg Aerial
+    sources: [atvogisogd_aerial_cache]
+    md:
+      abstract: Austria OGD Vorarlberg Aerial, Web Map Services (WMS) des Landes Vorarlberg
+      attribution:
+        title: Web Map Services (WMS) des Landes Vorarlberg
+        url: http://data.vorarlberg.gv.at/ogd/geographieundplanung/flaechenwidmungsplan.shtm
+
+  - name: de.bayern.aerial
+    title: Germany OGD Bayern Aerial
+    sources: [debayernogd_aerial_cache]
+    md:
+      abstract: Germany OGD Bayern Aerial, Web Map Services (WMS) des Landes Vorarlberg
+      attribution:
+        title: Datenquelle Bayerische Vermessungsverwaltung - www.geodaten.bayern.de
+        url: http://opendata.bayern.de/daten/details,db017e0c-99d0-41ea-8ec7-239a356c7593.html
+
+caches:
+  globe_aerial_all_cache:
+    grids: [epsg3857]
+    sources: [mapquest_aerial_wms,atwienogd_aerial_mapnik,atlinzogd_aerial_mapnik,atgrazogd_aerial_wms,debayernogd_aerial_wms,atvogisogd_aerial_wms]
+    link_single_color_images: true
+
+
+

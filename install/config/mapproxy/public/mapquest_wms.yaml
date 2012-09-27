@@ -1,0 +1,18 @@
+caches:
+ mapquest_aerial_wmscache:
+   sources: [mapquest_aerial_wms]
+   grids: [epsg3857]
+
+sources:
+
+ mapquest_aerial_wms:
+   type: wms
+   coverage:
+      bbox: [-20037508.3428, -20037508.3428, 20037508.3428,20037508.3428]
+      bbox_srs: 'EPSG:3857'
+   #min_res: 611.49622628141
+   #max_res: 76.43702828517625
+   req:
+     url: http://opengeoserver.org:9205/service?
+     layers: globe.aerial.mapquest
+     transparent: true

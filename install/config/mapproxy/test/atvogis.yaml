@@ -1,0 +1,22 @@
+
+caches:
+  atvogisogd_aerial_cache:
+    grids: [epsg3857]
+    sources: [atvogisogd_aerial_wms]
+    link_single_color_images: true
+
+sources:
+  atvogisogd_aerial_wms:
+    type: wms
+    supported_srs: ['EPSG:31254']
+    image:
+      transparent_color: '#ffffff'
+      transparent_color_tolerance: 20
+    transparent: true
+    req:
+      url: http://vogis.cnv.at/mapserver/mapserv?map=i_luftbilder_r_wms.map
+      layers: ef2009_25cmm
+      transparent: true
+    #coverage:
+    #  bbox: [1799448.394855, 6162571.828177, 1848250.442089, 6124949.747770]
+    #  bbox_srs: 'EPSG:3857'

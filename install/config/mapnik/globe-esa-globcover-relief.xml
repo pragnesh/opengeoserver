@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE Map[]>
+<Map srs="+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over">
+
+<Parameters>
+  <Parameter name="bounds">-180,-85.05112877980659,180,85.05112877980659</Parameter>
+  <Parameter name="center">14.104042053222615,49.64006653032085,4</Parameter>
+  <Parameter name="format">png8</Parameter>
+  <Parameter name="minzoom">0</Parameter>
+  <Parameter name="maxzoom">9</Parameter>
+  <Parameter name="name"><![CDATA[Globe ESA Globcover ]]></Parameter>
+  <Parameter name="description"><![CDATA[ESA  GlobCover map ]]></Parameter>
+  <Parameter name="attribution"><![CDATA[Design & Rendering <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC BY-SA 2.0</a> <a href="http://kartenwerkstatt.at">Kartenwerkstatt.at</a>, Data (C)2010 <a href="http://ionia1.esrin.esa.int/">ESA and UCLouvain</a> <a href="http://www.naturalearthdata.com">Natural Earth</a>]]></Parameter>
+  <Parameter name="version">1.0.0</Parameter>
+  <Parameter name="legend"><![CDATA[<!-- This legend uses Unicode box-drawing characters to approxmate line styles. -->
+<span style='color:#AAF0F0'>▉</span> Irrigated croplands <br />
+<span style='color:#FFFF64'>▉</span> Rainfed croplands <br />
+<span style='color:#DCF064'>▉</span> Mosaic cropland <br />
+<span style='color:#CDCD66'>▉</span> Mosaic vegetation <br />
+<span style='color:#006400'>▉</span> Broadleaved evergreen  <br />
+<span style='color:#00A000'>▉</span> Broadleaved forest <br />
+<span style='color:#AAC800'>▉</span> Broadleaved woodland <br />
+<span style='color:#003C00'>▉</span> Needleleaved forest <br />
+<span style='color:#286400'>▉</span> Needleleaved deciduous  <br />
+<span style='color:#788200'>▉</span> Mixed broadleaved <br />
+<span style='color:#8CA000'>▉</span> Mosaic forest  <br />
+<span style='color:#BE9600'>▉</span> Mosaic grassland <br />
+<span style='color:#966400'>▉</span> Shrubland <br />
+<span style='color:#FFB432'>▉</span> Herbaceous vegetation  <br />
+<span style='color:#FFEBAF'>▉</span> Sparse vegetation <br />
+<span style='color:#00785A'>▉</span> Forest regularly flooded <br />
+<span style='color:#009678'>▉</span> Forest permanently flooded <br />
+<span style='color:#00DC82'>▉</span> Grassland regularly flooded <br />
+<span style='color:#C31400'>▉</span> Urban areas <br />
+<span style='color:#FFF5D7'>▉</span> Bare areas <br />
+<span style='color:#0046C8'>▉</span> Water bodies <br />
+<span style='color:#FFFFFF'>▉</span> Snow and ice <br />
+]]></Parameter>
+</Parameters>
+
+
+<Style name="relief" filter-mode="first">
+  <Rule>
+    <RasterSymbolizer scaling="lanczos" opacity="1" mode="normal" />
+  </Rule>
+</Style>
+<Layer name="relief"
+  srs="+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over">
+    <StyleName>relief</StyleName>
+    <Datasource>
+       <Parameter name="file"><![CDATA[/usr/share/mapbox/project/globe-esa-globcover-relief/layers/relief.tiff]]></Parameter>
+       <Parameter name="type"><![CDATA[gdal]]></Parameter>
+    </Datasource>
+  </Layer>
+
+<Style name="globcover" filter-mode="first">
+  <Rule>
+    <RasterSymbolizer scaling="lanczos" opacity="1" mode="multiply" />
+  </Rule>
+</Style>
+<Layer name="globcover"
+  srs="+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over">
+    <StyleName>globcover</StyleName>
+    <Datasource>
+       <Parameter name="file"><![CDATA[/usr/share/mapbox/project/globe-esa-globcover-relief/layers/globcover.tiff]]></Parameter>
+       <Parameter name="type"><![CDATA[gdal]]></Parameter>
+    </Datasource>
+  </Layer>
+
+</Map>

@@ -1,0 +1,26 @@
+
+caches:
+  debayernogd_aerial_cache:
+    grids: [epsg3857]
+    sources: [debayernogd_aerial_wms]
+    link_single_color_images: true
+
+sources:
+  debayernogd_aerial_wms:
+    type: wms
+    #supported_srs: ['EPSG:4326','EPSG:25832']
+    supported_srs: ['EPSG:4326']
+
+    min_res: 611.49622628141
+    image:
+      transparent_color: '#ffffff'
+      transparent_color_tolerance: 20
+    coverage:
+      bbox: [8.95319, 47.29399, 13.84269, 50.56737]
+      bbox_srs: 'EPSG:4326'
+
+    req:
+      url: http://geodaten.bayern.de/ogc/ogc_dop200_oa.cgi
+      layers: adv_dop200c
+      transparent: true
+

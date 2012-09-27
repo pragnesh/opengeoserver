@@ -1,0 +1,14 @@
+<Map  srs="+init=epsg:4326">
+  <Style name="default">
+    <Rule>
+      <RasterSymbolizer scaling="bilinear" />
+    </Rule>
+  </Style>
+    <Layer name="NASA_BMNG_200409" srs="+init=epsg:4326">
+        <StyleName>default</StyleName>
+        <Datasource>
+            <Parameter name="file">/opt/data/bmng/bmng200409_4326.tiff</Parameter>
+            <Parameter name="type">gdal</Parameter>
+        </Datasource>
+    </Layer>    
+</Map>

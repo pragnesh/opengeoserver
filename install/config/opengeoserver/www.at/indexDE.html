@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta charset="utf-8">
+    <title>OpenGeoServer</title>
+    <meta name="viewport" content="minimum-scale=1.0, width=device-width, maximum-scale=0.6667, user-scalable=no">
+    <meta name="description" content="OpenGeoServer" />
+    <meta name="keywords" content="leaflet, map," />
+    <meta name="author" content="Andreas Trawoeger" />
+    <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.4.4/leaflet.css" />
+    <!--[if lte IE 8]>
+        <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.4.4/leaflet.ie.css" />
+    <![endif]-->
+
+    <link href="http://opengeoserver.org/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/opengeoserver.css" rel="stylesheet">
+
+  </head>
+
+  <body>
+
+  <header>
+      <div class="navbar navbar-fixed-top navbar-inverse">
+        <div class="navbar-inner">
+          <div class="container">
+
+            <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+              <div class="icon-list icon-white"></div>
+            </a>
+
+            <div class="nav-collapse">
+              <ul class="nav">
+              <li class="active"><a href="http://opengeoserver.at"><i class="icon-globe icon-white"></i> OpenGeoServer</a></li>
+              <li><a href="http://opengeoserver.tumblr.com" target="_blank"><i class="icon-user icon-white"></i> Blog</a></li>
+
+              <li><a data-toggle="modal" href="#usageModalDE"><i class="icon-question-sign icon-white"></i> Datennutzung</a></li>
+              <li><a data-toggle="modal" href="#attributionModalDE"><i class="icon-hand-right icon-white"></i> Attribution </a></li>
+
+              <li><a data-toggle="modal" href="#poweredModalDE"><i class="icon-th icon-white"></i> Software</a></li>
+
+              <li><a href="https://github.com/atrawog/opengeoserver" target="_blank"><i class="icon-download icon-white"></i> GitHub</a></li>
+              <li><a data-toggle="modal" href="#aboutModalDE"><i class="icon-envelope icon-white"></i>  Impressum</a></li>
+              <li><a href="http://opengeoserver.org" target="_blank"><i class="icon-bullhorn icon-white"></i> English</a></li>
+
+            </div> <!-- nav-collapse -->
+
+          </div> <!-- container -->
+        </div> <!-- navbar-inner -->
+      </div> <!-- navbar navbar-fixed-top -->
+    </header>
+
+  <div class="modal hide fade" id="usageModalDE">
+      <div class="modal-header">
+        <a class="close" data-dismiss="modal">×</a>
+        <h2>Datennutzung</h2>
+      </div>
+
+      <div class="modal-body">
+
+        <h3>Demo Service</h3>
+          <p>Unter <a href="http://services.opengeoserver.org/demo">services.opengeoserver.org/demo</a> ist ein Mapproxy Demo Service abrufbar, der einen guten Überblick über die zur Verfügung stehenden Layer, Services und deren Benutzung bietet. </p>
+        <h3>WMS Service</h3>
+          <p>Alle zur Verfügung stehen Layer sind per WMS unter über das WMS Capabilities Document <a href="http://services.opengeoserver.org/service?REQUEST=GetCapabilities"> services.opengeoserver.org/service?REQUEST=GetCapabilities</a> abrufbar. Aus Performancegründen ist die maximal abrufbare Bildgröße aber auf 512x512 Pixel beschränkt und es wird ersucht möglichst die TMS bzw. WMTS  Services zu benutzen.</p>
+        <h3>WMTS und TMS Service</h3>
+          <p>Die WMTS und TMS Schnittstellen bieten den Zugriff mit der besten Performance. Das dazugehörige WMTS Capabilities Document befindet sich unter <a href="http://services.opengeoserver.org/wmts/1.0.0/WMTSCapabilities.xml"> services.opengeoserver.org/wmts/1.0.0/WMTSCapabilities.xml</a> uns das TMS TileMaps Document ist unter <a href="http://services.opengeoserver.org/tms/1.0.0">services.opengeoserver.org/tms/1.0.0</a> verfügbar.</p>
+          <h3>Tile Service</h3>
+          <p>Alle Layers lassen sich auch nach dem bei Goolge und OSM übliche Tile Schema abrufen und der entsprechende URL Pattern für z.B. den Layer <i>globe.aerial</i> in Leaflet lautet <i>http://services.opengeoserver.org/tiles/1.0.0/globe.aerial_EPSG3857/{z}/{x}/{y}.png?origin=nw</i></p>
+          <h3>Josm Editor</h3>
+          <p>Die OpenGeoServer Luftbildkarte lässt sich im Josm OpenStreetMap Editor per TMS und der Bilddienst-URL <i>tms:http://services.opengeoserver.org/tiles/1.0.0/globe.aerial_EPSG3857/{zoom}/{x}/{y}.png?origin=nw</i> als Kartenhintergrund einbinden.</p>
+          <h3>Potlatch Editor</h3>
+          <p>Für die Einbindung in der Luftbilder in den OSM Potlach Editor lautet die Bilddienst-URL <i>http://services.opengeoserver.org/tiles/1.0.0/globe.aerial_EPSG3857/$z/$x/$y.png?origin=nw</i> wobei es auch möglich ist ein Gebiet wie z.B. den  <a href="http://www.openstreetmap.org/edit?lat=48.3184&lon=14.3121&zoom=17&tileurl=http://services.opengeoserver.org/tiles/1.0.0/globe.aerial_EPSG3857/$z/$x/$y.png?origin=nw">Winterhafen Linz</a> direkt in Potlach aufzurufen. Die gigantomanisch lange URL dazu lautet <i>http://www.openstreetmap.org/edit?lat=48.3184&lon=14.3121&zoom=17&tileurl=http://services.opengeoserver.org/tiles/1.0.0/globe.aerial_EPSG3857/$z/$x/$y.png?origin=nw</i>
+              </p>
+        </div>
+    </div>
+
+
+   <div class="modal hide fade" id="attributionModalDE">
+      <div class="modal-header">
+        <a class="close" data-dismiss="modal">×</a>
+        <h2>Attribution</h2>
+      </div>
+
+      <div class="modal-body">
+
+        <h3>OpenGeoserver.at</h3>
+          <p>Alle durch <a href="http://OpenGeoserver.at">OpenGeoserver.at</a> zur Verfügung gestellten Bildkacheln unterliegen generell den Bedingungen der <a href="https://creativecommons.org/licenses/by/3.0/at/" rel="license" target="_blank">Creative Commons Namensnennung 3.0 Österreich Lizenz</a> mit der Namensnennung "Bildkacheln von OpenGeoServer.at" oder "Tiles by OpenGeoServer.org". Bei der Benutzung bitte nicht auf die die allfällige Namensnennung der jeweiligen Datenquelle vergessen.</p>
+
+        <h3>Blue Marble Next Generation</h3>
+
+        <p>Der Layer <i>globe.aerial</i> und <i>globe.nasa.bmng</i> verwendet Public Domain Daten des <a href="http://earthobservatory.nasa.gov/Features/BlueMarble">NASA Earth Observatory</a> und wurden von Reto Stoeckli erstellt. Die verwendeten Bildkacheln werden freundlicherweise zur Verfügung gestellt von <a href="http://kartenwerkstatt.at">Kartenwerkstatt.at</a></p>
+
+        <h3>Landsat</h3>
+        <p>Der Layer <i>globe.aerial</i> verwendet Public Domain Daten des NASA/JPL-Caltech. Die verwendeten Bildkacheln werden freundlicherweise zur Verfügung gestellt von  <a href="http://open.mapquest.com/" target="_blank">Open MapQuest</a> <img src="http://developer.mapquest.com/content/osm/mq_logo.png"></p>
+
+        <h3>Luftbilder Vereinigte Staaten</h3>
+        <p>Der Layer <i>globe.aerial</i> verwendet Public Domain Daten des U.S. Depart. of Agriculture, Farm Service Agency. Die verwendeten Bildkacheln werden freundlicherweise zur Verfügung gestellt von <a href="http://open.mapquest.com/" target="_blank">Open MapQuest</a> <img src="http://developer.mapquest.com/content/osm/mq_logo.png"></p>
+
+        <h3>Luftbilder Stadt Wien</h3>
+        <p>Der Layer <i>globe.aerial</i> und <i>at.vienna.aerial</i> verwendet <a href="http://data.wien.gv.at/nutzungsbedingungen">Daten der Stadt Wien</a> welche unter einer <a href="https://creativecommons.org/licenses/by/3.0/at/" rel="license" target="_blank">Creative Commons Namensnennung 3.0 Österreich Lizenz</a> mit der Namensnennung "Datenquelle: Stadt Wien - data.wien.gv.at" zur Verfügung stehen. Die verwendeten Bildkacheln werden freundlicherweise zur Verfügung gestellt von <a href="http://kartenwerkstatt.at">Kartenwerkstatt.at</a></p>
+
+        <h3>Luftbilder Stadt Linz</h3>
+        <p>Der Layer <i>globe.aerial</i> und <i>at.linz.aerial</i> verwendet <a href="http://data.linz.gv.at/nutzungsbedingungen">Daten der Stadt Linz</a> welche unter einer <a href="https://creativecommons.org/licenses/by/3.0/at/" rel="license" target="_blank">Creative Commons Namensnennung 3.0 Österreich Lizenz</a> mit der Namensnennung "Datenquelle: CC-BY-3.0: Stadt Linz - data.linz.gv.at" zur Verfügung stehen. Die verwendeten Bildkacheln werden freundlicherweise zur Verfügung gestellt von <a href="http://kartenwerkstatt.at">Kartenwerkstatt.at</a></p>
+
+        <h3>Luftbilder Stadt Graz</h3>
+        <p>Der Layer <i>globe.aerial</i> und <i>at.graz.aerial</i> verwendet <a href="http://data.graz.gv.at/nutzungsbedingungennetiquette">Daten der Stadt Graz</a> welche unter einer <a href="https://creativecommons.org/licenses/by/3.0/at/" rel="license" target="_blank">Creative Commons Namensnennung 3.0 Österreich Lizenz</a> mit der Namensnennung "Datenquelle: Stadt Graz - data.graz.gv.at" zur Verfügung stehen. Die verwendeten Bildkacheln werden freundlicherweise zur Verfügung gestellt von <a href="http://data.graz.gv.at">data.graz.gv.at</a></p></p>
+
+        <h3>Luftbilder Land Vorarlberg</h3>
+        <p>Der Layer <i>globe.aerial </i> und <i>at.vorarlberg.aerial</i> verwendet <a href="http://data.vorarlberg.gv.at/ogd/nutzungsbedingungen/nutzungsbedingungen.htm">Daten des Land Vorarlbergs</a> welche unter einer <a href="https://creativecommons.org/licenses/by/3.0/at/" rel="license" target="_blank">Creative Commons Namensnennung 3.0 Österreich Lizenz</a> mit der Namensnennung "Datenquelle: Land Vorarlberg – data.vorarlberg.gv.at" zur Verfügung stehen. Die verwendeten Bildkacheln werden freundlicherweise zur Verfügung gestellt von <a href="http://data.vorarlberg.gv.at">data.vorarlberg.gv.at</a></p>
+
+        <h3>Luftbilder Freistaat Bayern</h3>
+        <p>Der Layer <i>de.bayern.aerial</i> verwendet Daten des Freistaat Bayern, welche unter einer <a href="http://creativecommons.org/licenses/by/3.0/de/" rel="license" target="_blank">Creative Commons Namensnennung 3.0 Deutschland Lizenz</a> mit der Namensnennung "Datenquelle: Bayerische Vermessungsverwaltung - www.geodaten.bayern.de</a>" zur Verfügung stehen. Die verwendeten Bildkacheln werden freundlicherweise zur Verfügung gestellt von <a href="http://www.geodaten.bayern.de">www.geodaten.bayern.de</a></p>
+
+     </div>
+    </div>
+
+    <div class="modal hide fade" id="poweredModalDE">
+      <div class="modal-header">
+        <a class="close" data-dismiss="modal">×</a>
+        <h2>Software</h2>
+      </div>
+
+      <div class="modal-body">
+
+      <p>OpenGeoserver.at verwendet eine Reihe an frei verfügbarer OpenSource Software, ohne die OpenGeoserver.at nicht möglich wäre.</p>
+            <ul>
+             <li><a href="http://www.ubuntu.com/">Ubuntu</a></li>
+             <li><a href="http://docs.fabfile.org/en/1.4.3/index.html">Fabric</a></li>
+             <li><a href="http://munin-monitoring.org/">Munin</a></li>
+             <li><a href="http://unix4lyfe.org/darkstat/">Darkstat</a></li>
+             <li><a href="http://www.gdal.org/">Gdal</a></li>
+             <li><a href="http://www.postgresql.org/">Postgresql</a></li>
+             <li><a href="http://postgis.refractions.net/">Postgis</a></li>
+             <li><a href="http://mapbox.com/tilemill/">Tilemill</a></li>
+             <li><a href="http://mapnik.org/">Mapnik</a></li>
+             <li><a href="http://wiki.nginx.org/Main">Nginx</a></li>
+             <li><a href="http://mapproxy.org">MapProxy</a></li>
+             <li><a href="http://leaflet.cloudmade.com/">Leaflet</a></li>
+             <li><a href="http://twitter.github.com/bootstrap/">Twitter Bootstrap</a></li>
+             <li><a href="https://github.com/bmcbride/leaflet-users-map">Leaflet User Map</a></li>
+             </ul>
+      </div>
+    </div>
+
+
+
+    <div class="modal hide fade" id="aboutModalDE">
+      <div class="modal-header">
+        <a class="close" data-dismiss="modal">×</a>
+        <h3>Impressum</h3>
+      </div>
+      <div class="modal-body">
+        <p><strong>Email:</strong> <a href="mailto: atrawog@kartenwerkstatt.at">atrawog@kartenwerkstatt.at</a></p>
+        <p><strong>Twitter:</strong> <a href="https://twitter.com/#!/atrawog">@atrawog</a></p>
+        <p><strong>Webseite:</strong> <a href="http://kartenwerkstatt.at">kartenwerkstatt.at</a></p>
+        <p><strong>Adresse:</strong> Andreas Trawöger, Lastenstraße 39, 1230 Wien Österreich</p>
+      </div>
+    </div>
+
+
+    <div class="modal hide fade" id="aboutModalEN">
+      <div class="modal-header">
+        <a class="close" data-dismiss="modal">×</a>
+        <h3>About</h3>
+      </div>
+      <div class="modal-body">
+        <p><strong>Email:</strong> <a href="mailto: atrawog@kartenwerkstatt.at">atrawog@kartenwerkstatt.at</a></p>
+        <p><strong>Twitter:</strong> <a href="https://twitter.com/#!/atrawog">@atrawog</a></p>
+        <p><strong>Web:</strong> <a href="http://kartenwerkstatt.at">kartenwerkstatt.at</a></p>
+        <p><strong>SnailMail:</strong> Andreas Trawöger, Lastenstraße 39, 1230 Wien Austria</p>
+      </div>
+    </div>
+
+    <div id="map"></div>
+
+    <div class="geolocation">
+      <a href="#" onclick="geoLocate(); return false;" title="My Location"></a>
+    </div>
+
+    <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+   <script type="text/javascript" src="http://opengeoserver.org/leaflet/leaflet.js"></script>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script type="text/javascript" src="http://opengeoserver.org/bootstrap/js/bootstrap.js"></script>
+
+    <script type="text/javascript">
+      var map, opengeoserver, firstLoad;
+
+      firstLoad = true;
+
+      users = new L.FeatureGroup();
+      newUser = new L.LayerGroup();
+
+      aerial = new L.TileLayer("http://services.opengeoserver.org/tiles/1.0.0/globe.aerial_EPSG3857/{z}/{x}/{y}.png?origin=nw", {
+        maxZoom: 18,
+        //attribution: 'Tiles Courtesy of <a href="http://www.mapquest.com/" target="_blank">MapQuest</a>.'
+      });
+
+      map = new L.Map('map', {
+        center: new L.LatLng(48.67, 11.61),
+        zoom: 5,
+        layers: [aerial]
+      });
+
+      map.addControl(new L.Control.Scale());
+
+
+      $(document).ready(function() {
+        $.ajaxSetup({cache:false});
+        $('#map').css('height', ($(window).height() ));
+      });
+
+      $(window).resize(function () {
+        $('#map').css('height', ($(window).height() ));
+      }).resize();
+
+     </script>
+
+  </body>
+</html>

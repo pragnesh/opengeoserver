@@ -1,0 +1,288 @@
+base: [globals.yaml, grids.yaml,mapquest.yaml,osmfoundation.yaml,stamen.yaml,atwien.yaml,atlinz.yaml,nasa.yaml,noaa.yaml,osmbright.yaml,esa.yaml,atgraz.yaml,atvogis.yaml]
+
+services:
+  demo:
+  #kml:
+  #wmts:
+  tms:
+  wms:
+    srs: ['EPSG:3857','EPSG:4326']
+    image_formats: ['image/png']
+    md:
+      title: OpenGeoServer Layers
+      abstract: MapProxy WMS server hosted by opengeoserver.org
+      online_resource: http://opengeoserver.org/
+      access_constraints: None
+      fees: 'None'
+      contact:
+        person: Andreas Trawoeger
+        organization: Kartenwerkstatt.at
+        email: atrawog@kartenwerkstatt.at
+
+layers:
+
+  - name: globe.esa.globcover
+    title: Globe ESA Globcover
+    sources: [esa_globcover_cache]
+    md:
+      abstract: ESA Globcover, Data (C)2010 ESA an UCLovain
+      attribution:
+        title: Data (C)2010 ESA an UCLovain
+        url: http://ionia1.esrin.esa.int/
+
+  - name: globe.noaa.nightlight.2009
+    title: Globe NOAA Nighttime Average Lights 2009
+    sources: [noaa_nightlight_2009_cache]
+    md:
+      abstract: Globe NOAA Nighttime Average Lights 2009, Image and data processing by NOAA's National Geophysical Data Center. DMSP data collected by US Air Force Weather Agency.
+      attribution:
+        title:  Image and data processing by NOAA's National Geophysical Data Center. DMSP data collected by US Air Force Weather Agency.
+        url:   http://www.ngdc.noaa.gov/dmsp/downloadV4composites.html
+
+  - name: globe.nasa.bmng
+    title: Globe NASA BlueMarble
+    sources: [globe_nasa_bmng_cache]
+    md:
+      abstract: Blue Marble Next Generation was produced by Reto Stoeckli, NASA Earth Observatory
+      attribution:
+        title: Blue Marble Next Generation was produced by Reto Stoeckli, NASA Earth Observatory
+        url:   http://earthobservatory.nasa.gov/Features/BlueMarble/
+
+  - name: globe.osm.foundation
+    title: Globe OpenStreetMap Foundation Mapnik Style
+    sources: [osmfoundation_default_cache]
+    md:
+      abstract: OpenStreetMap contributors, CC-BY-SA
+      attribution:
+        title: OpenStreetMap contributors, CC-BY-SA
+        url:   http://www.openstreetmap.org
+
+  - name: globe.aerial.mapquest
+    title: Globe Aerial Mapquest Open
+    sources: [mapquest_aerial_cache]
+    md:
+       abstract: Tiles Courtesy of MapQuest, Portions Courtesy NASA/JPL-Caltech and U.S. Depart. of Agriculture, Farm Service Agency.
+       attribution:
+        title: Tiles Courtesy of MapQuest, Portions Courtesy NASA/JPL-Caltech and U.S. Depart. of Agriculture, Farm Service Agency.
+        url:  http://developer.mapquest.com/web/products/open/map
+
+
+  - name: globe.osm.stamen.toner
+    title: Globe OpenStreetMap Stamen Desigen Toner Style
+    sources: [stamen_toner_cache]
+    md:
+      abstract: Map tiles by Stamen Design, under CC BY 3.0. Data by OpenStreetMap, under CC BY SA.
+      attribution:
+        title: Map tiles by Stamen Design, under CC BY 3.0. Data by OpenStreetMap, under CC BY SA.
+        url:   http://maps.stamen.com
+
+#  - name: globe.osm.stamen.toner.transperant
+#    title: Globe OpenStreetMap Stamen Desigen Toner Style
+#    sources: [stamen_toner_transparent_wms]
+#    md:
+#      attribution:
+#        title: Map tiles by Stamen Design, under CC BY 3.0. Data by OpenStreetMap, under CC BY SA.
+#        url:   http://maps.stamen.com
+
+# - name: us.osm.stamen.terrain
+#   title: us_osm_stamen_terrain
+#   sources: [stamen_terrain_cache]
+
+  - name: at.vienna.ogd.label
+    title: Austria OGD Vienna Label
+    sources: [atwienogd_label_cache]
+    md:
+      abstract: Austria OGD Vienna Label, Datenquelle CC-BY-3.0 Stadt Wien - data.wien.gv.at
+      attribution:
+        title: Datenquelle CC-BY-3.0 Stadt Wien - data.wien.gv.at
+        url:   http://data.wien.gv.at/nutzungsbedingungen
+
+  - name: at.vienna.ogd.aerial
+    title: Austria OGD Vienna Aerial
+    sources: [atwienogd_aerial_cache]
+    md:
+      abstract: Austria OGD Vienna Aerial, Datenquelle CC-BY-3.0 Stadt Wien - data.wien.gv.at
+      attribution:
+        title: Datenquelle CC-BY-3.0 Stadt Wien - data.wien.gv.at
+        url:   http://data.wien.gv.at/nutzungsbedingungen
+
+  - name: at.vienna.ogd.map
+    title: Austria OGD Vienna Map
+    sources: [atwienogd_map_cache]
+    md:
+      abstract: Austria OGD Vienna Map, Datenquelle CC-BY-3.0 Stadt Wien - data.wien.gv.at
+      attribution:
+        title: Datenquelle CC-BY-3.0 Stadt Wien - data.wien.gv.at
+        url:   http://data.wien.gv.at/nutzungsbedingungen
+
+  - name: at.linz.ogd.aerial
+    title: Austria OGD Linz Aerial
+    sources: [atlinzogd_aerial_cache]
+    md:
+      abstract: Austria OGD Linz Aerial, Datenquelle CC-BY-3.0 Stadt Linz - data.linz.gv.at
+      attribution:
+        title: Datenquelle CC-BY-3.0 Stadt Linz - data.linz.gv.at
+        url:   http://data.linz.gv.at/nutzungsbedingungen
+
+  - name: at.linz.ogd.map
+    title: Austria OGD Linz Map
+    sources: [atlinzogd_map_cache]
+    md:
+      abstract: Austria OGD Linz Map, Datenquelle CC-BY-3.0 Stadt Linz - data.linz.gv.at
+      attribution:
+        title: Datenquelle CC-BY-3.0 Stadt Linz - data.linz.gv.at
+        url:   http://data.linz.gv.at/nutzungsbedingungen
+
+  - name: at.graz.ogd.aerial
+    title: Austria OGD Graz Aerial
+    sources: [atgrazogd_aerial_cache]
+    md:
+      abstract: Austria OGD Graz Aerial, Datenquelle CC-BY-3.0 Stadt graz - data.graz.gv.at
+      attribution:
+        title: Datenquelle CC-BY-3.0 Stadt graz - data.graz.gv.at
+        url:   http://data.graz.gv.at/nutzungsbedingungen
+
+  - name: at.vorarlberg.ogd.aerial
+    title: Austria OGD Vorarlberg Aerial
+    sources: [atvogisogd_aerial_cache]
+    md:
+      abstract: Austria OGD Vorarlberg Aerial, Web Map Services (WMS) des Landes Vorarlberg
+      attribution:
+        title: Web Map Services (WMS) des Landes Vorarlberg
+        url: http://data.vorarlberg.gv.at/ogd/geographieundplanung/flaechenwidmungsplan.shtm
+
+  - name: globe.osm.stamen.watercolor
+    title: Globe OpenStreetMap Stamen Desigen Watercolor Style
+    sources: [stamen_watercolor_cache]
+    md:
+      abstract: Map tiles by Stamen Design, under CC BY 3.0. Data by OpenStreetMap, under CC BY SA.
+      attribution:
+        title: Map tiles by Stamen Design, under CC BY 3.0. Data by OpenStreetMap, under CC BY SA.
+        url:   http://maps.stamen.com
+
+  - name: globe.aerial.all
+    title: Globe Aerial All Layers Combined
+    sources: [globe_aerial_all_cache]
+    md:
+      abstract: Globe Aerial All Layers Combined, Tiles Courtesy of MapQuest, Portions Courtesy NASA/JPL-Caltech and U.S. Depart. of Agriculture, Farm Service Agency, Stadt Wien, Stadt Linz, Stadt Graz, Land Vorarlberg
+      attribution:
+        title: Tiles Courtesy of MapQuest, Portions Courtesy NASA/JPL-Caltech and U.S. Depart. of Agriculture, Farm Service Agency, Stadt Wien, Stadt Linz, Stadt Graz, Land Vorarlberg
+        url:  http://developer.mapquest.com/web/products/open/map
+
+  - name: eu.osm.all
+    title: Europe OpenStreetMap Bright All Layers combined
+    sources: [osmbright_all_cache]
+    md:
+      abstract: Europe OpenStreetMap Bright All Layers combined, OpenStreetMap contributors, CC-BY-SA
+      attribution:
+        title: OpenStreetMap contributors, CC-BY-SA
+        url:   http://www.openstreetmap.org
+
+  - name: eu.osm.land
+    title: Europe OpenStreetMap Bright Land
+    sources: [osmbright_land_cache]
+    md:
+      abstract: Europe OpenStreetMap Bright Land, OpenStreetMap contributors, CC-BY-SA
+      attribution:
+        title: OpenStreetMap contributors, CC-BY-SA
+        url:   http://www.openstreetmap.org
+
+  - name: eu.osm.landuse
+    title: Europe OpenStreetMap Bright Landuse
+    sources: [osmbright_landuse_cache]
+    md:
+      abstract: Europe OpenStreetMap Bright Landuse, OpenStreetMap contributors, CC-BY-SA
+      attribution:
+        title: OpenStreetMap contributors, CC-BY-SA
+        url:   http://www.openstreetmap.org
+
+  - name: eu.osm.water
+    title: Europe OpenStreetMap Bright Water
+    sources: [osmbright_water_cache]
+    md:
+      abstract: Europe OpenStreetMap Bright Water, OpenStreetMap contributors, CC-BY-SA
+      attribution:
+        title: OpenStreetMap contributors, CC-BY-SA
+        url:   http://www.openstreetmap.org
+
+  - name: eu.osm.admin
+    title: Europe OpenStreetMap Bright Administrative Lines
+    sources: [osmbright_admin_cache]
+    md:
+      abstract: Europe OpenStreetMap Bright Administrative Lines, OpenStreetMap contributors, CC-BY-SA
+      attribution:
+        title: OpenStreetMap contributors, CC-BY-SA
+        url:   http://www.openstreetmap.org
+
+  - name: eu.osm.building
+    title: Europe OpenStreetMap Bright Buildings
+    sources: [osmbright_building_cache]
+    md:
+      abstract: Europe OpenStreetMap Bright Buildings, OpenStreetMap contributors, CC-BY-SA
+      attribution:
+        title: OpenStreetMap contributors, CC-BY-SA
+        url:   http://www.openstreetmap.org
+
+  - name: eu.osm.roads
+    title: Europe OpenStreetMap Bright Roads
+    sources: [osmbright_roads_cache]
+    md:
+      abstract: Europe OpenStreetMap Bright Roads, OpenStreetMap contributors, CC-BY-SA
+      attribution:
+        title: OpenStreetMap contributors, CC-BY-SA
+        url:   http://www.openstreetmap.org
+
+  - name: eu.osm.label-place
+    title: Europe OpenStreetMap Bright Place Label
+    sources: [osmbright_label_place_cache]
+    md:
+      abstract: Europe OpenStreetMap Bright Place Label, OpenStreetMap contributors, CC-BY-SA
+      attribution:
+        title: OpenStreetMap contributors, CC-BY-SA
+        url:   http://www.openstreetmap.org
+
+  - name: eu.osm.label-area
+    title: Europe OpenStreetMap Area Label
+    sources: [osmbright_label_area_cache]
+    md:
+      abstract: Europe OpenStreetMap Area Label, OpenStreetMap contributors, CC-BY-SA
+      attribution:
+        title: OpenStreetMap contributors, CC-BY-SA
+        url:   http://www.openstreetmap.org
+
+  - name: eu.osm.label-water
+    title: Europe OpenStreetMap Bright Water Label
+    sources: [osmbright_label_water_cache]
+    md:
+      abstract: Europe OpenStreetMap Bright Water Label, OpenStreetMap contributors, CC-BY-SA
+      attribution:
+        title: OpenStreetMap contributors, CC-BY-SA
+        url:   http://www.openstreetmap.org
+
+  - name: eu.osm.label-road
+    title: Europe OpenStreetMap Bright Road Label
+    sources: [osmbright_label_road_cache]
+    md:
+      abstract: Europe OpenStreetMap Bright Road Label, OpenStreetMap contributors, CC-BY-SA
+      attribution:
+        title: OpenStreetMap contributors, CC-BY-SA
+        url:   http://www.openstreetmap.org
+
+  - name: eu.osm.label-all
+    title: Europe OpenStreetMap Bright All Labels
+    sources: [osmbright_label_all_cache]
+    md:
+      abstract: Europe OpenStreetMap Bright All Labels, OpenStreetMap contributors, CC-BY-SA
+      attribution:
+        title: OpenStreetMap contributors, CC-BY-SA
+        url:   http://www.openstreetmap.org
+
+caches:
+  globe_aerial_all_cache:
+    grids: [epsg3857]
+    sources: [mapquest_aerial_tile,atwienogd_aerial_mapnik,atlinzogd_aerial_mapnik,atgrazogd_aerial_wms,atvogisogd_aerial_wms]
+    link_single_color_images: true
+    meta_size: [1, 1]
+    meta_buffer: 0
+
+

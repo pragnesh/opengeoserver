@@ -1,0 +1,28 @@
+<Map  srs="+init=epsg:3857">
+  <Style name="default">
+    <Rule>
+      <RasterSymbolizer scaling="lanczos" />
+    </Rule>
+  </Style>
+    <Layer name="aerial" srs="+init=epsg:3857">
+        <StyleName>default</StyleName>
+        <Datasource>
+            <Parameter name="file">/opt/data/ogdwien/ogdwien_wtms3857_ortho_201205.tiff</Parameter>
+            <Parameter name="type">gdal</Parameter>
+        </Datasource>
+    </Layer>    
+    <Layer name="label" srs="+init=epsg:3857">
+        <StyleName>default</StyleName>
+        <Datasource>
+            <Parameter name="file">/opt/data/ogdwien/ogdwien_wtms3857l_beschriftung.tiff</Parameter>
+            <Parameter name="type">gdal</Parameter>
+        </Datasource>
+    </Layer>  
+    <Layer name="map" srs="+init=epsg:3857">
+        <StyleName>default</StyleName>
+        <Datasource>
+            <Parameter name="file">/opt/data/ogdwien/ogdwien_wtms3857_stadtplan_201205.tiff</Parameter>
+            <Parameter name="type">gdal</Parameter>
+        </Datasource>
+    </Layer>  
+</Map>

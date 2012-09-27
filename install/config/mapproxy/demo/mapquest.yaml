@@ -1,0 +1,35 @@
+caches:
+ mapquest_aerial_cache:
+   sources: [mapquest_aerial_tile]
+   grids: [epsg3857]
+
+sources:
+ mapquest_aerial_tile:
+   type: tile
+   grid: epsg3857nw
+   #coverage:
+      #bbox: [-20037508.342789236,-20037508.342789236,20037508.342789236,20037508.342789236]
+      #bbox_srs: 'EPSG:3857'
+   url: http://oatile1.mqcdn.com/tiles/1.0.0/sat/%(tms_path)s.jpg
+   on_error:
+    204:
+      response: transparent
+      cache: True
+    502:
+      response: '#ede9e3'
+      cache: False
+    other:
+      response: transparent
+      cache: False
+
+ mapquest_aerial_localwms:
+   type: wms
+   coverage:
+      bbox: [-20037508.3428, -20037508.3428, 20037508.3428,20037508.3428]
+      bbox_srs: 'EPSG:3857'
+   min_res: 611.49622628141
+   #max_res: 76.43702828517625
+   req:
+     url: http://demo.opengeoserver.org:9203/service?
+     layers: globe.aerial.mapquest
+     transparent: true

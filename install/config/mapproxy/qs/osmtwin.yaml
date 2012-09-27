@@ -1,0 +1,90 @@
+
+caches:
+  osmtwin_all_cache:
+    grids: [epsg3857]
+    sources: [osmtwin_all]
+    link_single_color_images: true
+
+  osmtwin_label_place_cache:
+    grids: [epsg3857]
+    sources: [osmtwin_label_place]
+    link_single_color_images: true
+
+  osmtwin_label_area_cache:
+    grids: [epsg3857]
+    sources: [osmtwin_label_area]
+    link_single_color_images: true
+
+  osmtwin_label_water_cache:
+    grids: [epsg3857]
+    sources: [osmtwin_label_water]
+    link_single_color_images: true
+
+  osmtwin_label_road_cache:
+    grids: [epsg3857]
+    sources: [osmtwin_label_road]
+    link_single_color_images: true
+
+  osmtwin_label_all_cache:
+    grids: [epsg3857]
+    sources: [osmtwin_label_all]
+    link_single_color_images: true
+
+  osmtwin_baumkataster_cache:
+    grids: [epsg3857]
+    sources: [osmtwin_baumkataster]
+    link_single_color_images: true
+
+sources:
+  osmtwin_all:
+    type: mapnik
+    use_mapnik2: true
+    mapfile: /opt/mapnik/OSMTwinCity-03.xml
+
+  osmtwin_label_place:
+    type: mapnik
+    use_mapnik2: true
+    transparent: true
+    mapfile: /opt/mapnik/OSMTwinCity-03.xml
+    layers: place
+
+
+  osmtwin_label_area:
+    type: mapnik
+    use_mapnik2: true
+    transparent: true
+    mapfile: /opt/mapnik/OSMTwinCity-03.xml
+    layers: area_label
+
+
+  osmtwin_label_water:
+    type: mapnik
+    use_mapnik2: true
+    transparent: true
+    mapfile: /opt/mapnik/OSMTwinCity-03.xml
+    layers: waterway_label
+
+
+  osmtwin_label_road:
+    type: mapnik
+    use_mapnik2: true
+    transparent: true
+    mapfile: /opt/mapnik/OSMTwinCity-03.xml
+    layers: motorway_label,mainroad_label,minorroad_label
+
+
+  osmtwin_label_all:
+    type: mapnik
+    use_mapnik2: true
+    transparent: true
+    mapfile: /opt/mapnik/OSMTwinCity-03.xml
+    layers: place,area_label,waterway_label,motorway_label,mainroad_label,minorroad_label
+
+  osmtwin_baumkataster:
+    type: mapnik
+    use_mapnik2: true
+    transparent: true
+    mapfile: /opt/mapnik/OSMTwinCity-03.xml
+    layers: baumkataster
+
+

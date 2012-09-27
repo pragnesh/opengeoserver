@@ -1,0 +1,39 @@
+caches:
+  stamen_toner_wmscache:
+   sources: [stamen_toner_wms]
+   grids: [epsg3857]
+   link_single_color_images: true
+
+  stamen_terrain_wmscache:
+   sources: [stamen_terrain_wms]
+   grids: [epsg3857]
+   link_single_color_images: true
+
+  stamen_watercolor_wmscache:
+   sources: [stamen_watercolor_wms]
+   grids: [epsg3857]
+   link_single_color_images: true
+
+sources:
+
+  stamen_toner_wms:
+    type: wms
+    image:
+      transparent_color: '#ffffff'
+      transparent_color_tolerance: 20
+    req:
+      url: http://opengeoserver.org:9205/service
+      layers: globe.osm.stamen.toner
+      transparent: true
+
+  stamen_terrain_wms:
+    type: wms
+    req:
+      url: http://opengeoserver.org:9205/service
+      layers: globe.osm.stamen.terrain
+
+  stamen_watercolor_wms:
+    type: wms
+    req:
+      url: http://opengeoserver.org:9205/service
+      layers: globe.osm.stamen.watercolor

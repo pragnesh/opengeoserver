@@ -1,0 +1,15 @@
+grids:
+ epsg4326:
+   srs: EPSG:4326
+   num_levels: 19
+
+ epsg3857:
+   #base: GLOBAL_MERCATOR
+   srs: EPSG:3857
+   num_levels: 19
+
+ epsg3857nw:
+   #base: GLOBAL_MERCATOR
+   srs: EPSG:3857
+   num_levels: 19
+   origin: nw

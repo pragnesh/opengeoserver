@@ -1,0 +1,28 @@
+
+caches:
+  atlinzogd_aerial_cache:
+    grids: [epsg3857]
+    sources: [atlinzogd_aerial_mapnik]
+    link_single_color_images: true
+
+  atlinzogd_map_cache:
+    grids: [epsg3857]
+    sources: [atlinzogd_map_mapnik]
+    link_single_color_images: true
+
+sources:
+  atlinzogd_aerial_mapnik:
+    type: mapnik
+    mapfile: /opt/mapnik/ogdlinz_aerial_3857.xml
+    min_res: 611.49622628141
+    transparent: true
+    coverage:
+      bbox: [14.23389, 48.20274, 14.41817, 48.38792]
+      bbox_srs: 'EPSG:4326'
+
+  atlinzogd_map_mapnik:
+    type: mapnik
+    mapfile: /opt/mapnik/ogdlinz_map_3857.xml
+    coverage:
+      bbox: [1585529.272, 6141839.247, 1604389.543, 6170263.450]
+      bbox_srs: 'EPSG:3857'

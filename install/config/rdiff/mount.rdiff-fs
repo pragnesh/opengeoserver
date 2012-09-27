@@ -1,0 +1,21 @@
+#!/bin/bash
+# https://code.google.com/p/rdiff-backup-fs/issues/detail?id=4
+# /path/to/repository        /path/to/mount        fuse.rdiff-fs        last,allow_other        0 0
+
+REPOSITORY="$2"
+MOUNTPOINT="$1"
+unset LAST
+IFS=","
+OPTIONS="-o ro"
+
+for i in $4
+do
+    if [ "$i" == "last" ] ; then
+        LAST="--last"
+    elif [ "$i" != "rw" -a "$i" != "ro" ] ; then
+        OPTIONS="${OPTIONS},${i}"
+    fi
+done
+
+IFS=" "
+exec /usr/bin/rdiff-backup-fs "$REPOSITORY" "$MOUNTPOINT" $LAST $OPTIONS
