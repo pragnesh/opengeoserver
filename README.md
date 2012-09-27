@@ -1,4 +1,4 @@
-opengeoserver
+OpenGeoServer
 =============
 
 OpenGeoServer.at configuration files
