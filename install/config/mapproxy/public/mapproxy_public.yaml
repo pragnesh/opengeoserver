@@ -7,7 +7,7 @@ services:
   tms:
   wms:
     srs: ['EPSG:3857']
-    image_formats: ['image/png']
+    image_formats: ['image/png', 'image/jpeg']
     max_output_pixels: [512,512]
     md:
       title: OpenGeoServer Layers
@@ -24,6 +24,15 @@ layers:
   - name: globe.aerial
     title: Globe Aerial Combined Layers
     sources: [globe_aerial_all_cache]
+    md:
+      abstract: Globe Aerial Combined Layers, Tiles Courtesy of MapQuest, Portions Courtesy NASA/JPL-Caltech and U.S. Depart. of Agriculture, Farm Service Agency, Stadt Wien, Stadt Linz, Stadt Graz, Land Vorarlberg
+      attribution:
+        title: Tiles Courtesy of MapQuest, Portions Courtesy NASA/JPL-Caltech and U.S. Depart. of Agriculture, Farm Service Agency, Stadt Wien, Stadt Linz, Stadt Graz, Land Vorarlberg
+        url:  http://developer.mapquest.com/web/products/open/map
+
+  - name: globe.aerial.test.mixed
+    title: Globe Aerial Combined Layers with JPEG support
+    sources: [globe_aerial_all_mixcache]
     md:
       abstract: Globe Aerial Combined Layers, Tiles Courtesy of MapQuest, Portions Courtesy NASA/JPL-Caltech and U.S. Depart. of Agriculture, Farm Service Agency, Stadt Wien, Stadt Linz, Stadt Graz, Land Vorarlberg
       attribution:
@@ -91,5 +100,15 @@ caches:
     sources: [mapquest_aerial_wms,atwienogd_aerial_mapnik,atlinzogd_aerial_mapnik,atgrazogd_aerial_wms,debayernogd_aerial_wms,atvogisogd_aerial_wms]
     link_single_color_images: true
 
+  globe_aerial_all_mixcache:
+    sources: [mapquest_aerial_wms,atwienogd_aerial_mapnik,atlinzogd_aerial_mapnik,atgrazogd_aerial_wms,debayernogd_aerial_wms,atvogisogd_aerial_wms]
+    grids: [epsg3857]
+    format: image/jpeg
+    request_format: image/png
+    link_single_color_images: true
+    minimize_meta_requests: true
+    cache:
+     type: file
+     directory_layout: tms
 
 

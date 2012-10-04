@@ -60,10 +60,18 @@ def mapproxy_config_public():
 
 def mapproxy_seed_public():
     cmd = """
+    screen
     sudo su mapbox -
     . /opt/pyenv/mapproxy/public/bin/activate
     cd /opt/mapproxy/public
     mapproxy-seed -s seed_prod.yaml -f mapproxy_public.yaml -c 8
+    mapproxy-seed -f mapproxy_public.yaml -s seed_bmng.yaml  -c 4
+    mapproxy-seed -f mapproxy_public.yaml -s seed_landsat.yaml -c 4
+    mapproxy-seed -f mapproxy_public.yaml -s seed_wien.yaml -c 4
+    mapproxy-seed -f mapproxy_public.yaml -s seed_linz.yaml -c 4
+	mapproxy-seed -f mapproxy_public.yaml -s seed_graz.yaml -c 2
+	mapproxy-seed -f mapproxy_public.yaml -s seed_vorarlberg.yaml -c 2
+	mapproxy-seed -f mapproxy_public.yaml -s seed_bayern.yaml -c 2
     """
 
 def mapproxy_config_anim():
